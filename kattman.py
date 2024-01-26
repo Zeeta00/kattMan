@@ -17,12 +17,11 @@ yellow = (255, 255, 0)
 # Pac-Man properties
 pac_man_position = [width // 2, height // 2]
 pac_man_speed = 5  # Adjust the speed as needed
-pac_man_direction = [0, 0]
+pac_man_direction = [pac_man_speed, 0]
 
 # Load Pac-Man image
 pac_man_image = pygame.Surface((30, 30), pygame.SRCALPHA)
 pygame.draw.circle(pac_man_image, yellow, (15, 15), 15)
-pac_man_direction = [pac_man_speed, 0]
 # Main game loop
 while True:
     for event in pygame.event.get():
