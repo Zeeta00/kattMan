@@ -7,7 +7,7 @@ pygame.init()
 # Set up display
 width, height = 800, 600
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Pac-Man")
+pygame.display.set_caption("Katt-Man")
 
 # Colors
 black = (0, 0, 0)
