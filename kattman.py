@@ -20,8 +20,15 @@ pac_man_speed = 15  # Adjust the speed as needed
 pac_man_direction = [pac_man_speed, 0]
 
 # Load Pac-Man image
-pac_man_image = pygame.Surface((30, 30), pygame.SRCALPHA)
-pygame.draw.circle(pac_man_image, yellow, (15, 15), 15)
+
+pac_man_image = pygame.image.load("katt1.png")
+# pygame.draw.circle(pac_man_image, yellow, (15, 15), 15)
+
+pac_man_size = (50, 50)  # Set the desired size for Pac-Man
+pac_man_image = pygame.transform.scale(pac_man_image, pac_man_size)
+pac_man_position = pac_man_image.get_rect()
+pac_man_position.center = (width // 2, height // 2)  # Set the initial position of Pac-Man
+
 
 # Wall properties
 wall_thickness = 10
