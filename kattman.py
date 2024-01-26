@@ -22,7 +22,7 @@ pac_man_direction = [0, 0]
 # Load Pac-Man image
 pac_man_image = pygame.Surface((30, 30), pygame.SRCALPHA)
 pygame.draw.circle(pac_man_image, yellow, (15, 15), 15)
-
+pac_man_direction = [pac_man_speed, 0]
 # Main game loop
 while True:
     for event in pygame.event.get():
@@ -30,13 +30,13 @@ while True:
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RIGHT:
+            if event.key == pygame.K_RIGHT and abs(pac_man_direction[1]) == abs(pac_man_speed):
                 pac_man_direction = [pac_man_speed, 0]
-            elif event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN and abs(pac_man_direction[0]) == abs(pac_man_speed):
                 pac_man_direction = [0, pac_man_speed]
-            elif event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_LEFT and abs(pac_man_direction[1]) == abs(pac_man_speed):
                 pac_man_direction = [-pac_man_speed, 0]
-            elif event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP and abs(pac_man_direction[0]) == abs(pac_man_speed):
                 pac_man_direction = [0, -pac_man_speed]
 
     pac_man_position[0] += pac_man_direction[0]
