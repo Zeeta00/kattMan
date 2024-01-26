@@ -21,10 +21,17 @@ pac_man_direction = [pac_man_speed, 0]
 
 # Load Pac-Man image
 
-pac_man_image = pygame.image.load("kattManRight.png")
-# pygame.draw.circle(pac_man_image, yellow, (15, 15), 15)
+pac_man_startimage = pygame.image.load("kattManRight.png")
+pac_man_right_open = pygame.image.load("kattManRight.png")
+#pac_man_right_open = pygame.image.load("kattManRight.png")
+#pac_man_right_open = pygame.image.load("kattManRight.png")
+#pac_man_right_open = pygame.image.load("kattManRight.png")
+#pac_man_right_open = pygame.image.load("kattManRight.png")
 
-pac_man_size = (50, 50)  # Set the desired size for Pac-Man
+
+
+size_img = 50
+pac_man_size = (size_img, size_img)  # Set the desired size for Pac-Man
 pac_man_image = pygame.transform.scale(pac_man_startimage, pac_man_size)
 pac_man_position = pac_man_image.get_rect()
 pac_man_position.center = (width // 2, height // 2)  # Set the initial position of Pac-Man
@@ -53,8 +60,8 @@ while True:
     pac_man_position[1] += pac_man_direction[1]
 
     # Check for collision with screen boundaries
-    pac_man_position[0] = max(min(pac_man_position[0], width - 30 -wall_thickness), 0+wall_thickness)
-    pac_man_position[1] = max(min(pac_man_position[1], height - 30 - wall_thickness), 0+wall_thickness)
+    pac_man_position[0] = max(min(pac_man_position[0], width - size_img -wall_thickness), 0+wall_thickness)
+    pac_man_position[1] = max(min(pac_man_position[1], height - size_img - wall_thickness), 0+wall_thickness)
 
     # Clear the screen
     screen.fill(black)
