@@ -5,7 +5,7 @@ import sys
 pygame.init()
 
 # Set up display
-width, height = 600, 600
+width, height = 800, 600
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pac-Man")
 
@@ -16,12 +16,16 @@ yellow = (255, 255, 0)
 
 # Pac-Man properties
 pac_man_position = [width // 2, height // 2]
-pac_man_speed = 5  # Adjust the speed as needed
+pac_man_speed = 15  # Adjust the speed as needed
 pac_man_direction = [pac_man_speed, 0]
 
 # Load Pac-Man image
 pac_man_image = pygame.Surface((30, 30), pygame.SRCALPHA)
 pygame.draw.circle(pac_man_image, yellow, (15, 15), 15)
+
+# Wall properties
+wall_thickness = 10
+
 # Main game loop
 while True:
     for event in pygame.event.get():
@@ -41,8 +45,18 @@ while True:
     pac_man_position[0] += pac_man_direction[0]
     pac_man_position[1] += pac_man_direction[1]
 
+    # Check for collision with screen boundaries
+    pac_man_position[0] = max(min(pac_man_position[0], width - 30 - wall_thickness), 0+wall_thickness)
+    pac_man_position[1] = max(min(pac_man_position[1], height - 30 - wall_thickness), 0+wall_thickness)
+
     # Clear the screen
     screen.fill(black)
+
+    # Draw wall around the screen
+    pygame.draw.rect(screen, white, (0, 0, width, wall_thickness))  # Top wall
+    pygame.draw.rect(screen, white, (0, 0, wall_thickness, height))  # Left wall
+    pygame.draw.rect(screen, white, (0, height - wall_thickness, width, wall_thickness))  # Bottom wall
+    pygame.draw.rect(screen, white, (width - wall_thickness, 0, wall_thickness, height))  # Right wall
 
     # Blit Pac-Man onto the screen
     screen.blit(pac_man_image, pac_man_position)
