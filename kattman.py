@@ -21,15 +21,7 @@ pac_man_direction = [pac_man_speed, 0]
 
 # Load Pac-Man image
 
-pac_man_startimage = pygame.image.load("katt1.png")
-pac_man_right_open = pygame.image.load("katt1.png")
-#pac_man_startimage = pygame.image.load("katt1.png")
-#pac_man_startimage = pygame.image.load("katt1.png")
-#pac_man_startimage = pygame.image.load("katt1.png")
-#pac_man_startimage = pygame.image.load("katt1.png")
-#pac_man_startimage = pygame.image.load("katt1.png")
-
-
+pac_man_image = pygame.image.load("kattManRight.png")
 # pygame.draw.circle(pac_man_image, yellow, (15, 15), 15)
 
 pac_man_size = (50, 50)  # Set the desired size for Pac-Man
